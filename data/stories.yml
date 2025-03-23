@@ -1,0 +1,52 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: Get Departments
+  steps:
+  - intent: get_departments
+  - action: action_get_departments
+
+- story: Get Doctors in Department
+  steps:
+    - intent: get_doctors_in_department
+      entities:
+        - department: "Pediatrics"
+    - action: action_get_doctors_in_department
+
+- story: Get Room Availability
+  steps:
+    - intent: get_room_availability
+    - action: action_get_room_availability
+
+- story: Get Hospital Info
+  steps:
+    - intent: get_hospital_info
+    - action: action_get_hospital_info
